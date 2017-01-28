@@ -5,56 +5,28 @@ myTvGuide.config(function ($routeProvider) {
         .when('/', {
             templateUrl: 'login.html'
         })
+        .when('/liveTv', {
+            templateUrl: 'liveTv.html',
+            controller: 'filters'
+        })
         .otherwise({
             redirectTo: '/'
         })
 });
 
-myTvGuide.controller('languages', function ($scope) {
-    $scope.language = [
+myTvGuide.controller('filters', function ($scope) {
+    $scope.tvChannels = [
         {
-            name: 'C++',
-            extension: '.cpp'
+            name: 'HBO',
+            liveTv: 'Subscription'
         },
         {
-            name: 'PHP',
-            extension: '.php'
+            name: 'SHOWTIME',
+            liveTv: 'Subscription'
         },
         {
-            name: 'JAVA',
-            extension: '.java'
+            name: 'STARZ',
+            liveTv: 'Subscription'
         }
     ];
-
-    $scope.showExtension = function (myLan) {
-        $scope.myFavLanguage = myLan.name;
-        $scope.myFavExtension = myLan.extension;
-    }
-});
-
-myTvGuide.controller('filters', function ($scope) {
-
-});
-
-angular.module('ui.bootstrap.demo').controller('ButtonsCtrl', function ($scope) {
-    $scope.singleModel = 1;
-
-    $scope.radioModel = 'Middle';
-
-    $scope.checkModel = {
-        left: false,
-        middle: true,
-        right: false
-    };
-
-    $scope.checkResults = [];
-
-    $scope.$watchCollection('checkModel', function () {
-        $scope.checkResults = [];
-        angular.forEach($scope.checkModel, function (value, key) {
-            if (value) {
-                $scope.checkResults.push(key);
-            }
-        });
-    });
 });
