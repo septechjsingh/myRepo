@@ -1,0 +1,14 @@
+<table controller='filters' class="table table-hover table-responsive liveTv">
+    <thead>
+        <th>Company</th>
+        <th>Live TV?</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="myChan in tvChannels">
+            <td> {{ myChan.name }} </td>
+            <td> {{ myChan.liveTv }} </td>
+        </tr>
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="liveTv.css">
