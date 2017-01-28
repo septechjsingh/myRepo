@@ -1,12 +1,12 @@
 <table controller='filters' class="table table-hover table-responsive liveTv">
     <thead>
-        <th>Company</th>
-        <th>Live TV?</th>
+        <th class="text-left">Company</th>
+        <th class="text-right">Live TV?</th>
     </thead>
     <tbody>
         <tr ng-repeat="myChan in tvChannels">
-            <td> {{ myChan.name }} </td>
-            <td> {{ myChan.liveTv }} </td>
+            <td class="text-left"> {{ myChan.name }} </td>
+            <td class="text-right"> {{ myChan.liveTv }} </td>
         </tr>
     </tbody>
 </table>

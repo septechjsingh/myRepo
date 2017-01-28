@@ -3,7 +3,8 @@ var myTvGuide = angular.module('myTvGuide', ['ngAnimate', 'ngTouch', 'ui.bootstr
 myTvGuide.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'login.html'
+            templateUrl: 'login.html',
+            controller: 'login'
         })
         .when('/liveTv', {
             templateUrl: 'liveTv.html',
@@ -29,4 +30,10 @@ myTvGuide.controller('filters', function ($scope) {
             liveTv: 'Subscription'
         }
     ];
+});
+
+myTvGuide.controller('login', function ($scope, $window, $location) {
+    $scope.validateLogin = function () {
+        $location.url('/liveTv');
+    }
 });
