@@ -7,6 +7,13 @@ myTvGuide.config(function ($routeProvider) {
             controller: 'login'
         })
         .when('/liveTv', {
+            resolve: {
+                "check": function ($location, $rootScope) {
+                    if (!$rootScope.loggedIn) {
+                        $location.path('/');
+                    }
+                }
+            },
             templateUrl: 'liveTv.html',
             controller: 'filters'
         })
@@ -15,25 +22,24 @@ myTvGuide.config(function ($routeProvider) {
         })
 });
 
-myTvGuide.controller('filters', function ($scope) {
-    $scope.tvChannels = [
-        {
-            name: 'HBO',
-            liveTv: 'Subscription'
-        },
-        {
-            name: 'SHOWTIME',
-            liveTv: 'Subscription'
-        },
-        {
-            name: 'STARZ',
-            liveTv: 'Subscription'
-        }
-    ];
+myTvGuide.controller('filters', function ($scope, $http) {
+
+    var myJsonReq = {
+        method: 'GET',
+        url: 'http://192.168.0.11:3000/database.json'
+    }
+    $http(myJsonReq).then(function (response) {
+        $scope.tvChannels = response.data.admin;
+    }, function () {
+
+    });
 });
 
-myTvGuide.controller('login', function ($scope, $window, $location) {
+myTvGuide.controller('login', function ($scope, $window, $location, $rootScope) {
     $scope.validateLogin = function () {
-        $location.url('/liveTv');
+        if ($scope.email == "admin" && $scope.password == "admin") {
+            $rootScope.loggedIn = true;
+            $location.path('/liveTv');
+        }
     }
 });

@@ -1,0 +1,16 @@
+{
+    "admin": [
+        {
+            "name": "HBO",
+            "liveTv": "Subscription"
+        },
+        {
+            "name": "SHOWTIME",
+            "liveTv": "Subscription"
+        },
+        {
+            "name": "STARZ",
+            "liveTv": "Subscription"
+        }
+    ]
+}
