@@ -1,14 +1,17 @@
-<table ng-controller='filters' class="table table-hover table-responsive liveTv">
-    <thead>
-        <th class="text-left">Company</th>
-        <th class="text-right">Live TV?</th>
-    </thead>
-    <tbody>
-        <tr ng-repeat="myChan in tvChannels">
-            <td class="text-left"> {{ myChan.name }} </td>
-            <td class="text-right"> {{ myChan.liveTv }} </td>
-        </tr>
-    </tbody>
-</table>
-
-<link rel="stylesheet" href="liveTv.css">
+<div ng-controller='filters' class="liveTv">
+    <input type="text" ng-model="search" class="searchBar form-control">
+    <br>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <th class="text-left">Company</th>
+            <th class="text-right">Live TV?</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="myChan in tvChannels | filter:search">
+                <td class="text-left"> {{ myChan.name }} </td>
+                <td class="text-right"> {{ myChan.liveTv }} </td>
+            </tr>
+        </tbody>
+    </table>
+    <link rel="stylesheet" href="liveTv.css">
+</div>
