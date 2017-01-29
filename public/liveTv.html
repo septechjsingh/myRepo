@@ -7,7 +7,7 @@
             <th class="text-right">Live TV?</th>
         </thead>
         <tbody>
-            <tr ng-repeat="myChan in tvChannels | filter:search">
+            <tr ng-repeat="myChan in tvChannels track by myChan.name | filter:search">
                 <td class="text-left"> {{ myChan.name }} </td>
                 <td class="text-right"> {{ myChan.liveTv }} </td>
             </tr>
