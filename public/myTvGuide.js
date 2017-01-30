@@ -28,12 +28,12 @@ myTvGuide.controller('filters', function ($scope, $http) {
 
     var myJsonReq = {
         method: 'GET',
-        url: 'http://192.168.0.11:3000/database.json'
+        url: 'http://localhost:3000/database.json'
     }
     $http(myJsonReq).then(function (response) {
         $scope.tvChannels = response.data.admin;
     }, function () {
-
+        window.alert("Request Failed. Try again later or don't, what the hell do I know");
     });
 });
 
