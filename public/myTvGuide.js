@@ -22,6 +22,8 @@ myTvGuide.config(function ($routeProvider) {
         })
 });
 
+myTvGuide.controller('userInput', function ($scope, $http) {});
+
 myTvGuide.controller('filters', function ($scope, $http) {
 
     var myJsonReq = {

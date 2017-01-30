@@ -7,7 +7,7 @@
             <th class="text-right">Live TV?</th>
         </thead>
         <tbody>
-            <tr ng-repeat="myChan in tvChannels track by myChan.name | filter:search">
+            <tr ng-repeat="myChan in tvChannels | filter:search">
                 <td class="text-left"> {{ myChan.name }} </td>
                 <td class="text-right"> {{ myChan.liveTv }} </td>
             </tr>
@@ -15,3 +15,16 @@
     </table>
     <link rel="stylesheet" href="liveTv.css">
 </div>
+
+<!--
+  <form ng-controller='userInput'>
+        <div class="input-group input-group-lg">
+            <input type="text" ng-model="search" class="searchBar form-control">
+            <span class="input-group-btn">
+                  <button class = "btn btn-primary" type = "submit">
+                     Go!
+                  </button>
+            </span>
+        </div>
+    </form>
+-->
