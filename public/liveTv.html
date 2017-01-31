@@ -1,30 +1,65 @@
+<md-content ng-controller="filters" layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak">
+    <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+        <md-card-content>
+            <form name="searchForm" ng-submit="doSearch()">
+                <md-input-container class="md-block">
+                    <input type="text" ng-model="search" required="">
+                </md-input-container>
+                <section layout="row" layout-sm="column" layout-align="center center">
+                    <md-button ng-disabled="!searchForm.$valid" type="submit" class="md-raised md-primary">&nbsp Submit &nbsp</md-button>
+                </section>
+            </form>
+            <br>
+            <section layout="row" layout-align="space-around" layout-padding="layout-padding">
+                <md-card class="tvLogos card-1" layout-align="center center">
+                    <img src="Icons/hbo-go-logo.jpg">
+                </md-card>
+                <md-card class="tvLogos card-1" layout-align="center center">
+                    <img src="Icons/prime.jpg">
+                </md-card>
+                <md-card class="tvLogos card-1" layout-align="center center">
+                    <img src="Icons/Starz_Logo_01.png">
+                </md-card>
+                <md-card class="tvLogos card-1" layout-align="center center">
+                    <img src="Icons/netflix-2.svg">
+                </md-card>
+                <md-card class="tvLogos card-1" layout-align="center center">
+                    <img src="Icons/showtime1.png">
+                </md-card>
+            </section>
+        </md-card-content>
+    </md-card>
+    <link rel="stylesheet" href="liveTv.css">
+</md-content>
+
+<!--
 <div ng-controller='filters' class="liveTv">
-    <input type="text" ng-model="search" class="searchBar form-control">
+    <div>
+        <input type="text" ng-model="search">
+        <span>
+            <button type = "submit">Go!</button>
+        </span>
+    </div>
     <br>
-    <table class="table table-hover table-responsive">
+    <div class="card-container">
+        <div class="card card-1 card-a"></div>
+        <div class="card card-1 card-b"></div>
+        <div class="card card-1 card-c"></div>
+        <div class="card card-1 card-d"></div>
+        <div class="card card-1 card-e"></div>
+    </div>
+    <table>
         <thead>
-            <th class="text-left">Company</th>
-            <th class="text-right">Live TV?</th>
+            <th>Company</th>
+            <th>Live TV?</th>
         </thead>
         <tbody>
             <tr ng-repeat="myChan in tvChannels | filter:search">
-                <td class="text-left"> {{ myChan.name }} </td>
-                <td class="text-right"> {{ myChan.liveTv }} </td>
+                <td> {{ myChan.name }} </td>
+                <td> {{ myChan.liveTv }} </td>
             </tr>
         </tbody>
     </table>
-    <link rel="stylesheet" href="liveTv.css">
+    
 </div>
-
-<!--
-  <form ng-controller='userInput'>
-        <div class="input-group input-group-lg">
-            <input type="text" ng-model="search" class="searchBar form-control">
-            <span class="input-group-btn">
-                  <button class = "btn btn-primary" type = "submit">
-                     Go!
-                  </button>
-            </span>
-        </div>
-    </form>
 -->

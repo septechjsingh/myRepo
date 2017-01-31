@@ -1,29 +1,37 @@
-<div class="container">
-    <div class="row vertical-offset-100">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please sign in</h3>
-                </div>
-                <div class="panel-body">
-                    <form accept-charset="UTF-8" ng-controller="login" ng-submit="validateLogin()">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="text" ng-model="email">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="password">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                                </label>
-                            </div>
-                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+<md-content ng-controller="login" layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form">
+    <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+        <md-card-content>
+            <form name="Form" ng-submit="validateLogin()">
+                <md-input-container class="md-block">
+                    <label>Login</label>
+                    <input type="text" name="email" ng-model="myEmail" placeholder="email@email.com" required="" />
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input type="password" name="password" ng-model="myPassword" placeholder="password" required="">
+                </md-input-container>
+                <section layout="row" layout-sm="column" layout-align="center center">
+                    <md-button ng-disabled="!Form.$valid" type="submit" class="md-raised md-accent">&nbsp Login &nbsp</md-button>
+                </section>
+            </form>
+        </md-card-content>
+    </md-card>
+</md-content>
+
+<link rel="stylesheet" href="loginStyles.css">
+
+
+<!--
+<form accept-charset="UTF-8" ng-controller="login" ng-submit="validateLogin()">
+    <fieldset>
+        <input placeholder="E-mail" name="email" type="text" ng-model="email">
+        <input placeholder="Password" name="password" type="password" value="" ng-model="password">
+        <div class="checkbox">
+            <label>
+                <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+            </label>
         </div>
-    </div>
-</div>
+        <input type="submit" value="Login">
+    </fieldset>
+</form>
+-->

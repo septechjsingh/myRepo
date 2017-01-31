@@ -1,4 +1,10 @@
-var myTvGuide = angular.module('myTvGuide', ['ngAnimate', 'ngTouch', 'ui.bootstrap', 'ngRoute']);
+var myTvGuide = angular.module('myTvGuide', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAnimate', 'ngAria']);
+
+myTvGuide.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue')
+        .accentPalette('amber');
+});
 
 myTvGuide.config(function ($routeProvider) {
     $routeProvider
@@ -22,8 +28,6 @@ myTvGuide.config(function ($routeProvider) {
         })
 });
 
-myTvGuide.controller('userInput', function ($scope, $http) {});
-
 myTvGuide.controller('filters', function ($scope, $http) {
 
     var myJsonReq = {
@@ -38,10 +42,16 @@ myTvGuide.controller('filters', function ($scope, $http) {
 });
 
 myTvGuide.controller('login', function ($scope, $window, $location, $rootScope) {
+    $scope.vm = {
+        formData: {
+            email: 'hello@patternry.com',
+            password: 'foobar'
+        }
+    };
     $scope.validateLogin = function () {
-        if ($scope.email == "admin" && $scope.password == "admin") {
+        if ($scope.myEmail == "admin" && $scope.myPassword == "admin") {
             $rootScope.loggedIn = true;
             $location.path('/liveTv');
         }
-    }
+    };
 });
