@@ -28,13 +28,7 @@ myTvGuide.config(function ($routeProvider) {
         })
 });
 
-myTvGuide.controller('filters', function ($scope, $http) {
-
-    var myJsonReq = {
-        method: 'GET',
-        url: 'http://localhost:3000/database.json'
-    };
-});
+myTvGuide.controller('filters', function ($scope, $http) {});
 
 myTvGuide.controller('login', function ($scope, $window, $location, $rootScope) {
     $scope.vm = {
