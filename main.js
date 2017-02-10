@@ -3,6 +3,13 @@ var app = express();
 var bodyParser = require('body-parser');
 
 app.use(express.static('public'));
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
     extended: true
@@ -18,7 +25,9 @@ app.post('/login', function (req, res) {
 
     if (username.toUpperCase() == "admin".toUpperCase() && password.toUpperCase() == "admin".toUpperCase()) {
         res.send(true);
-    };
+    } else {
+        res.send(false);
+    }
 });
 
 app.listen(3000, function () {

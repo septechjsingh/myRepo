@@ -30,7 +30,7 @@ myTvGuide.config(function ($routeProvider) {
 
 myTvGuide.controller('filters', function ($scope, $http) {});
 
-myTvGuide.controller('login', function ($scope, $window, $location, $rootScope) {
+myTvGuide.controller('login', function ($scope, $http, $window, $location, $rootScope) {
     $scope.vm = {
         formData: {
             email: 'hello@patternry.com',
@@ -38,9 +38,13 @@ myTvGuide.controller('login', function ($scope, $window, $location, $rootScope) 
         }
     };
     $scope.validateLogin = function () {
-        if ($scope.myEmail == "admin" && $scope.myPassword == "admin") {
-            $rootScope.loggedIn = true;
-            $location.path('/liveTv');
-        }
+        var url = 'http://10.30.107.132:3000/login';
+        var dataObj = {
+            username: $scope.myEmail,
+            password: $scope.myPassword
+        };
+        $http.post(url, dataObj).success(function (data, status) {
+            console.log(data);
+        })
     };
 });
