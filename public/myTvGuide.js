@@ -38,7 +38,7 @@ myTvGuide.controller('login', function ($scope, $http, $window, $location, $root
         }
     };
     $scope.validateLogin = function () {
-        var url = 'http://ec2-54-152-165-57.compute-1.amazonaws.com/login';
+        var url = 'http://ec2-54-90-148-109.compute-1.amazonaws.com/login';
         var dataObj = {
             username: $scope.myEmail,
             password: $scope.myPassword
@@ -50,6 +50,6 @@ myTvGuide.controller('login', function ($scope, $http, $window, $location, $root
             } else {
                 $window.alert("Wrong Credentials. Please try again!");
             }
-        })
+        });
     };
 });
