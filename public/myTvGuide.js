@@ -38,13 +38,18 @@ myTvGuide.controller('login', function ($scope, $http, $window, $location, $root
         }
     };
     $scope.validateLogin = function () {
-        var url = 'http://10.30.107.132:3000/login';
+        var url = 'http://ec2-54-152-165-57.compute-1.amazonaws.com/login';
         var dataObj = {
             username: $scope.myEmail,
             password: $scope.myPassword
         };
         $http.post(url, dataObj).success(function (data, status) {
-            console.log(data);
+            if (data == true) {
+                $rootScope.loggedIn = true;
+                $location.path('/liveTv');
+            } else {
+                $window.alert("Wrong Credentials. Please try again!");
+            }
         })
     };
 });
