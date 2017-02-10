@@ -23,7 +23,7 @@ app.post('/login', function (req, res) {
     var username = String(req.body.username);
     var password = String(req.body.password);
 
-    if (username.toUpperCase() == "admin".toUpperCase() && password.toUpperCase() == "admin".toUpperCase()) {
+    if (username.toUpperCase() == "admin".toUpperCase() && password == "admin") {
         res.send(true);
     } else {
         res.send(false);
